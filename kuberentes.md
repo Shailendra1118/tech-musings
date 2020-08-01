@@ -1,0 +1,48 @@
+## Minikube setup and start
+```
+minikube start --driver=hyperkit (will download docker-machine-driver-hyperkit if driver is not there)
+minikube start --vm-driver=hyperkit --memory 4092
+$ eval $(minikube docker-env) | <undo> eval $(docker-env -u)
+minikube detele
+
+```
+
+## Docker commands
+```
+docker build --tag myapp:1.0 . (finds Dockerfile in current directory)
+
+docker run --name batch-mq -d -p 8080:8080 batch-mq:latest
+-d start container in detached mode
+-p expose container internal port
+
+docker container ls | list docker containers
+
+docker container rm <containerID> 
+
+docker logs <containerID> | show logs of mentioned container
+
+docker container logs <containerID>
+
+docker rmi <imageID> | remove docker image
+
+docker stop containerID
+
+docker exec -it containerID /bin/sh
+```
+
+## Kubectl commands
+```
+kubectl -n <namespace> get pods | list all pods
+
+kubectl -n <namespace> get svc
+
+kubectl apply -f mysql.yaml | create K8 resources
+
+kubectl describe deployment mysql
+```
+
+
+## Port kill util on MacOS
+```
+npx kill-port 5005 5006 5007
+```
