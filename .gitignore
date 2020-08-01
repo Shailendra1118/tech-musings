@@ -1,0 +1,38 @@
+### Build Output ###
+.gradle/
+build/
+out/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### MacOS ###
+.DS_Store
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+# Compiled class file
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+nohup.out
+!gradle/wrapper/gradle-wrapper.jar
+
+application-local.yaml
+
