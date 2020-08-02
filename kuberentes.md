@@ -32,13 +32,28 @@ docker exec -it containerID /bin/sh
 
 ## Kubectl commands
 ```
+kubectl -n <namespace> od-1234 port-forward <Pod> [localport:remoteport]
+
 kubectl -n <namespace> get pods | list all pods
 
 kubectl -n <namespace> get svc
 
-kubectl apply -f mysql.yaml | create K8 resources
+kubectl apply -f mysql.yaml | create K8 resources, -f=filename
 
 kubectl describe deployment mysql
+
+kubectl logs nginx
+
+kubectl logs -p -c ruby web-1 | return snapshot of previously terminated ruby container logs from pod web-1, -p=previous
+
+kubectl logs -f -c ruby web-2 | streaming of logs, -f=follow
+
+kubectl logs --tail=20 nginx | last 20 lines from pod nginx
+
+kubectl logs --since=1h nginx
+
+kubectl rollout SUBCOMMAND | manages a deployment using subcommand e.g. kubectl rollout undo deployment/abc
+
 ```
 
 
