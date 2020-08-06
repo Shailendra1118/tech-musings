@@ -4,7 +4,6 @@ minikube start --driver=hyperkit (will download docker-machine-driver-hyperkit i
 minikube start --vm-driver=hyperkit --memory 4092
 $ eval $(minikube docker-env) | <undo> eval $(docker-env -u)
 minikube detele
-
 ```
 
 ## Docker commands
@@ -53,8 +52,22 @@ kubectl logs --tail=20 nginx | last 20 lines from pod nginx
 kubectl logs --since=1h nginx
 
 kubectl rollout SUBCOMMAND | manages a deployment using subcommand e.g. kubectl rollout undo deployment/abc
-
 ```
+
+## Resource Units in K8
+- One cpu unit is equivalent to 1 vCPU/Core for cloud providers and 1 hyperthread on bare-metal Intel processors.
+```
+resources:
+  requests:
+    memory: 50Mi
+    cpu: 50m
+  limits:
+    memory: 100Mi
+    cpu: 100m
+```
+The unit suffix m stands for “thousandth of a core,” so this resources object specifies that the container process needs 50/1000 of a core (5%) and is allowed to use at most 100/1000 of a core (10%).
+
+- The cpu control group and docker both divide a core into 1024 shares, whereas kubernetes divides it into 1000
 
 ## Troubleshootig tips
 ```
