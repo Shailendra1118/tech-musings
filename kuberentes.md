@@ -56,6 +56,14 @@ kubectl rollout SUBCOMMAND | manages a deployment using subcommand e.g. kubectl 
 
 ```
 
+## Troubleshootig tips
+```
+kubectl top pod <pod_name>  -n kube-system | show resource usage for this pod like docker stats <container_id>
+```
+- kubectl top pod command refere container_memory_working_sets_byte, a prometheus metric exposed by cAdviser from K8.
+I would suggest using the one from kubectl top, because it is the one showed in Prometheus charts and also because working_set_bytes is what OOMKiller is watching for to decide if a container must be killed.
+- Docker stats instead collects metric directly from operating system and specifically from the /sys/fs/cgroup/memory special files.
+
 
 ## Port kill util on MacOS
 ```
