@@ -1,0 +1,40 @@
+version: "3.4"
+
+services:
+  example-pdf-generator-development:
+    build:
+      context: .
+      target: development
+      args:
+        version: ${VERSION:-patch}
+    image: docker.example.tools/example-pdf-generator/example-pdf-generator-development:${VERSION:-local}
+
+  browserless-chrome:
+    image: browserless/chrome:latest
+    ports:
+      - "3000"
+
+  example-pdf-generator:
+    build:
+      context: .
+      target: production
+      args:
+        version: ${VERSION:-patch}
+    image: docker.example.tools/example-pdf-generator/example-pdf-generator:${VERSION:-local}
+    ports:
+      - "8080"
+
+  example-pdf-generator-smoke:
+    build:
+      context: .
+      target: development
+      args:
+        version: ${VERSION:-patch}
+    command:
+      - run
+      - test:smoke
+    image: docker.example.tools/example-pdf-generator/example-pdf-generator-smoke:${VERSION:-local}
+    depends_on:
+      - example-pdf-generator
+    environment:
+      - BASE_URL=http://example-pdf-generator:8080

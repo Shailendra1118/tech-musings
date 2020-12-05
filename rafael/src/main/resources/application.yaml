@@ -1,0 +1,13 @@
+rafael:
+  # Involved in APIs endpoints from the monolith which are OAuth1-protected using the INTERNAL role.
+  baseUrl: ${APPDIRECT_BASE_URL:http://monolith/}
+  security:
+    oauth1:
+      consumerKey: ${OAUTH1_CONSUMER_KEY:dummyKey}
+      consumerSecret: ${OAUTH1_CONSUMER_SECRET:dummySecret}
+    oauth2:
+      authzUrl: ${AUTHZ_BASE_URL:http://authz/}
+      clientId: ${AUTHZ_CLIENT_ID:dummyClientId}
+      clientSecret: ${AUTHZ_CLIENT_SECRETKEY:dummyClientSecret}
+      tenant: RAFAEL
+    test2: 100

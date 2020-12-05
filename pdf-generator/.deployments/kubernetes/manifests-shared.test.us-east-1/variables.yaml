@@ -1,0 +1,16 @@
+namespace: default
+environment:
+  id: test
+smoke_tests:
+  client_id:
+  channel_admin_username:
+  channel_admin_password:
+  monolithbaseurl: https://cdsmoke.test.devexample.me
+  authzbaseurl: http://authz
+logging:
+  pdfgen:
+    level: "info"
+  chrome:
+    debug: "browserless:*, puppeteer:*"
+smoketest: false
+

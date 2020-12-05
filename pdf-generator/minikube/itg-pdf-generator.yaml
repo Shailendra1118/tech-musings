@@ -1,0 +1,79 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-pdf-generator
+  labels:
+    ad-app: example-pdf-generator
+spec:
+  type: NodePort
+  ports:
+    - name: http-port
+      port: 8080
+      targetPort: pdf-gen-port
+  selector:
+    ad-app: example-pdf-generator
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: example-pdf-generator
+  labels:
+    ad-app: example-pdf-generator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      ad-app: example-pdf-generator
+  template:
+    metadata:
+      name: example-pdf-generator
+      labels:
+        ad-app: example-pdf-generator
+    spec:
+      containers:
+        - name: example-pdf-generator
+          image: docker.example.tools/example/example-pdf-generator:PR-19-SNAPSHOT
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 2000m
+              memory: 128Mi
+          env:
+            - name: CHROME_WS_URL
+              value: 'ws://localhost:3000'
+            - name: BODY_PARSER_LIMIT
+              value: '50mb'
+          ports:
+            - containerPort: 8080
+              name: pdf-gen-port
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 120
+            timeoutSeconds: 5
+
+        - name: chrome-headless
+          image: browserless/chrome:release-puppeteer-1.9.0
+          resources:
+            requests:
+              cpu: 100m
+              memory: 512Mi
+            limits:
+              cpu: 2000m
+              memory: 512Mi
+          ports:
+            - containerPort: 3000
+              name: chrome-port
+          livenessProbe:
+            httpGet:
+              path: /config
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 120
+            timeoutSeconds: 5

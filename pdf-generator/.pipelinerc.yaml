@@ -1,0 +1,63 @@
+version: 0.1.150
+name: example-pdf-generator
+type: application
+applicationType: deployment
+language: js
+branch: master
+languageVersion: '8'
+hasInstall: true
+hasBuild: false
+hasTest: true
+entrypoint: npm
+installCommand: ci
+testCommand: test
+srcPaths: src
+hasCoverage: true
+coveragePaths: coverage/lcov.info
+startCommand: start
+templates:
+  - editorconfig
+  - docker
+  - jenkins
+  - sonarqube
+  - smoke
+configs: {}
+secrets: {}
+port: '8080'
+testClusters:
+  - manifests-dt.test.bmp
+  - manifests-shared.load.us-east-1
+  - manifests-shared.test.us-east-1
+prodClusters:
+  - manifests-dt.bmp
+  - manifests-shared.prod.ap-northeast-2
+  - manifests-shared.prod.eu-central-1
+  - manifests-shared.prod.us-east-1
+multiBranchDeploy: false
+testBranch: develop
+namespace: default
+hasSmoke: true
+smokeResources:
+  requests:
+    cpu: 200m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
+resources:
+  requests:
+    cpu: 250m
+    memory: 128Mi
+  limits:
+    cpu: 2000m
+    memory: 512Mi
+instanceGroup: default
+healthCheck: /health
+healthCheckDelay: '60'
+hasPrometheus: true
+replicas: '4'
+hasDatabase: false
+prometheus: /prometheus
+slack: '#example_example_internal'
+spamSlack: '#example_example_internal'
+teamEmail: fusion_example_pune@example.com

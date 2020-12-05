@@ -1,0 +1,192 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-pdf-generator
+  namespace: {{ .Values.namespace }}
+  labels:
+    ad-app: example-pdf-generator
+  annotations:
+    example.com/ingress.name: example-pdf-generator
+    example.com/ingress.mgmt: "true"
+    example.com/metadata.owner: fusion_example_pune@example.com
+    example.com/metadata.slack: "#example-example-dev"
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/prometheus"
+    prometheus.io/port: "8080"
+    getambassador.io/config: |
+      apiVersion: ambassador/v0
+      kind: Mapping
+      name: example-pdf-generator
+      prefix: /api/v1/pdfgenerator/pdfstream
+      rewrite: /api/v1/pdfgenerator/pdfstream
+      service: example-pdf-generator
+spec:
+  selector:
+    ad-app: example-pdf-generator
+  ports:
+    - name: http-port
+      port: 80
+      targetPort: http
+
+---
+{{ if .Values.smoketest }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-pdf-generator-preview
+  namespace: {{ .Values.namespace }}
+  labels:
+    ad-app: example-pdf-generator
+  annotations:
+    example.com/metadata.owner: fusion_example_pune@example.com
+spec:
+  selector:
+    ad-app: example-pdf-generator
+  ports:
+    - name: http-port
+      port: 80
+      targetPort: http
+{{ end }}
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: example-pdf-generator
+  namespace: {{ .Values.namespace }}
+  labels:
+    ad-app: example-pdf-generator
+  annotations:
+    example.com/metadata.github: https://github.com/example/example-pdf-generator
+    example.com/metadata.owner: fusion_example_pune@example.com
+    example.com/metadata.slack: "#example-example-dev"
+spec:
+  revisionHistoryLimit: 3
+  progressDeadlineSeconds: 300
+  replicas: 4
+  strategy:
+    blueGreen:
+      activeService: example-pdf-generator
+{{ if .Values.smoketest }}
+      previewService: example-pdf-generator-preview
+      prePromotionAnalysis:
+        templateName: example-pdf-generator-smoke
+{{ end }}
+      scaleDownDelaySeconds: 15
+  selector:
+    matchLabels:
+      ad-app: example-pdf-generator
+  template:
+    metadata:
+      labels:
+        ad-app: example-pdf-generator
+    spec:
+      containers:
+        - name: example-pdf-generator
+          image: docker.example.tools/example-pdf-generator/example-pdf-generator:{{ .Values.imageVersion }}
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - "sleep"
+                  - "5"
+          securityContext:
+            runAsNonRoot: true
+          resources:
+            requests:
+              cpu: 250m
+              memory: 128Mi
+            limits:
+              cpu: 2000m
+              memory: 512Mi
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: CHROME_WS_URL
+              value: 'ws://localhost:3000'
+            - name: BODY_PARSER_LIMIT
+              value: '50mb'
+            - name: ZIPKIN_BASEURL
+              value: http://zipkin-collector.tracing:9411
+            - name: LOG_LEVEL
+              value: {{ .Values.logging.pdfgen.level }}
+          ports:
+            - containerPort: 8080
+              name: http
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 60
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 60
+            timeoutSeconds: 5
+
+        - name: chrome-headless
+          image: docker.example.tools/browserless/chrome:release-puppeteer-1.9.0
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - "sleep"
+                  - "5"
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 512Mi
+            limits:
+              cpu: 2000m
+              memory: 512Mi
+          ports:
+            - containerPort: 3000
+              name: chrome-port
+          env:
+            - name: DEBUG
+              value: {{ .Values.logging.chrome.debug }}
+            - name: PREBOOT_CHROME
+              value: 'true'
+            - name: MAX_CONCURRENT_SESSIONS
+              value: '5'
+            - name: MAX_QUEUE_LENGTH
+              value: '5'
+          livenessProbe:
+            httpGet:
+              path: /config
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 120
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: cusfonts
+              mountPath: /usr/share/fonts/cusfonts/
+
+      initContainers:
+        - name: pdf-custom-fonts
+          image: docker.example.tools/example-pdf-generator/example-pdf-generator:{{ .Values.imageVersion }}
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+          command:
+            - /bin/sh
+            - -c
+            - echo $(ls -1 /app/src/utilities/fonts) && mkdir -p /cusfonts && cp -r /app/src/utilities/fonts/* /cusfonts/ && echo $(ls -1 /cusfonts/)
+          volumeMounts:
+            - mountPath: /cusfonts/
+              name: cusfonts
+      volumes:
+        - name: tmp
+          emptyDir: {}
+        - name: cusfonts
+          emptyDir: {}

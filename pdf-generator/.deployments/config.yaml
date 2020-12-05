@@ -1,0 +1,21 @@
+notification:
+  slack_channel: example-example-dev
+release:
+  workflow:
+    path: github.com/example/cd-workflows//bluegreen-release.yaml?ref=master
+  triggers:
+    - filter: ^\d+\.\d+\.\d+$
+      parameters:
+        - name: deploy-only-test-repos
+          value: |
+            [
+              "manifests-shared.load.us-east-1",
+              "manifests-shared.test.us-east-1"
+            ]
+        - name: deploy-only-repos
+          value: |
+            [
+              "manifests-shared.prod.ap-northeast-2",
+              "manifests-shared.prod.eu-central-1",
+              "manifests-shared.prod.us-east-1"
+            ]

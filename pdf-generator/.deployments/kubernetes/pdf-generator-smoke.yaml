@@ -1,0 +1,66 @@
+{{ if .Values.smoketest }}
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: example-pdf-generator-smoke
+  namespace: {{ .Values.namespace }}
+  annotations:
+    example.com/metadata.github: https://github.com/example/example-pdf-generator
+    example.com/metadata.owner: fusion_example_pune@example.com
+    example.com/metadata.slack: "#example-example-dev"
+  labels:
+    ad-app: example-pdf-generator-smoke
+spec:
+  metrics:
+    - name: smoke
+      provider:
+        job:
+          spec:
+            backoffLimit: 0
+            activeDeadlineSeconds: 300
+            template:
+              spec:
+                restartPolicy: Never
+                containers:
+                - name: example-pdf-generator-smoke
+                  image: docker.example.tools/example-pdf-generator/example-pdf-generator-smoke:{{ .Values.imageVersion }}
+                  securityContext:
+                    readOnlyRootFilesystem: true
+                    runAsNonRoot: true
+                  resources:
+                    limits:
+                      cpu: 100m
+                      memory: 64Mi
+                    requests:
+                      cpu: 50m
+                      memory: 32Mi
+                  envFrom:
+                  - secretRef:
+                      name: example-pdf-generator-smoketest-secrets
+                  env:
+                  - name: MICROSERVICE_URL
+                    value: "http://example-pdf-generator"
+                  - name: AD_Tenant
+                    value: "CDSMOKE"
+                  - name: MONOLITH_URL
+                    value: "{{ .Values.smoke_tests.monolithbaseurl }}"
+                  - name: AUTHZ_URL
+                    value: "{{ .Values.smoke_tests.authzbaseurl }}"
+
+---
+
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: example-pdf-generator-smoketest-secrets
+  namespace: {{ .Values.namespace }}
+  annotations:
+    example.com/metadata.owner: fusion_example_pune@example.com
+spec:
+  encryptedData:
+    client_id: {{ .Values.smoke_tests.client_id }}
+    client_secret: {{ .Values.smoke_tests.client_secret }}
+    channel_admin_username: {{ .Values.smoke_tests.channel_admin_username }}
+    channel_admin_password: {{ .Values.smoke_tests.channel_admin_password }}
+
+{{ end }}

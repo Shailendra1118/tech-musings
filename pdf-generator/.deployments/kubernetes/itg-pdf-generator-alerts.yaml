@@ -1,0 +1,39 @@
+apiVersion: example.com/v1
+kind: PrometheusAlert
+metadata:
+  name: example-pdf-generator
+  namespace: monitoring
+spec:
+  data: |{{`
+    groups:
+      - name: Pdf_Generator_Service_Health_rules
+        rules:
+        - alert: PdfGeneratorServicePodDown
+          expr: absent(up{group="live", ad_app="example-pdf-generator"}) or up{group="live", ad_app="example-pdf-generator"} != 1
+          for: 30s
+          labels:
+            severity: page
+            team: example-example
+          annotations:
+            description: Pdf Generator Service pod {{$labels.kubernetes_pod_name}} is DOWN
+            summary: Pdf Generator Service pod is DOWN
+        - alert: PdfGeneratorgIngressHighErrorRate
+          expr: avg(rate(haproxy_backend_http_responses_total{backend=~"example-pdf-generator.*_default",code=~"5xx"}[5m]) > rate(haproxy_backend_http_responses_total{backend=~"example-pdf-generator.*_default"}[5m]) * 0.05) by (backend)
+          for: 5m
+          labels:
+            severity: page
+            team: example-example
+          annotations:
+            description: Pdf Generator Service ingress 5xx rate is HIGH
+            summary: Pdf Generator Service ingress 5xx rate is HIGH
+        - alert: PdfGeneratorServiceHttpRequestsSlow
+          expr: avg by (kubernetes_pod_name, uri, method) (histogram_quantile(0.95, rate(http_request_duration_ms_bucket{ad_app="example-pdf-generator",group="live"}[5m]))) > 500
+          for: 5m
+          labels:
+            severity: warning
+            team: example-example
+          annotations:
+            description: examplePdfGenerator Service Pod --> {{$labels.kubernetes_pod_name}} P95 response
+              time for {{$labels.method}} {{$labels.uri}} is HIGH
+            summary: examplePdfGenerator Service P95 time is HIGH
+`}}
