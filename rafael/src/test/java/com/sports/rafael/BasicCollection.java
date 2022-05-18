@@ -29,6 +29,8 @@ public class BasicCollection {
     }
 
 
+
+
     @Test
     public void testEleven() {
         System.out.println(" ".isBlank()); // isEmpty was there in Java 8

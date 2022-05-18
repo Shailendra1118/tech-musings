@@ -1,6 +1,5 @@
 package com.sports.rafael;
 
-import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +12,7 @@ public class HelloFresh {
         String str = "Sorting12345";
         // no validation required
         // Thinking should be clear -> coherent -> in the same direction w/o jumping from solutions midway
-        // remember its all ascii chars
+        // remember it's all ascii chars
         StringBuilder lowers = new StringBuilder(str.length()); // default capacity is 16 chars
         StringBuilder uppers = new StringBuilder(str.length());
         StringBuilder odds = new StringBuilder(str.length());
@@ -41,13 +40,11 @@ public class HelloFresh {
     }
 
 
-    @Test
     public void testStr(){
         HelloFresh hf = new HelloFresh();
 
     }
 
-    @Test
     public void testTree() {
         TreeSet set = new TreeSet();
         set.add("A");

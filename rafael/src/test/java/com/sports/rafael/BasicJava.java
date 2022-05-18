@@ -1,36 +1,68 @@
 package com.sports.rafael;
 
 import com.sports.rafael.pojo.AzureUsageReportBean;
-import net.minidev.json.JSONUtil;
-import org.assertj.core.internal.IntArrays;
 import org.junit.jupiter.api.Test;
-
-import javax.swing.plaf.basic.BasicIconFactory;
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class BasicJava {
+
 
     @Test
     public void testConsumerForEach() {
 
         List<Integer> list = Arrays.asList(1,2,3,4,5);
         list.forEach(i -> System.out.println(Integer.toBinaryString(i)));
+
+    }
+
+
+    @Test
+    public void findComplement() {
+        int num = 5;
+        int n = 0;
+        while (n < num) {
+            n = (n << 1) | 1;
+            System.out.println("now n: "+n);
+        }
+        System.out.println("N:: "+n);
+        System.out.println(n - num);
+    }
+
+    @Test
+    public void toBinary(){
+        int num = 5; // 0101 0011
+        String binary = Integer.toBinaryString(num);
+        System.out.println(binary);
+        System.out.println("highestOneBit:: " +(Integer.highestOneBit(num) << 1));
+        System.out.println("negate ::"+~num);
+
+        StringBuilder sb = new StringBuilder();
+        for(char c : binary.toCharArray()){
+            sb.append(c == '0'? '1' : '0');
+        }
+        String comp = sb.toString();
+        int res = Integer.parseInt(comp, 2);
+        System.out.println(res);
+
+
 
 
     }
@@ -316,6 +348,83 @@ public class BasicJava {
 
     @Test
     public void modAndDivide() {
+
+    }
+
+    @Test
+    public void precedenceOps() {
+        int a = 10;
+        int b = -a++; //assign first then increment
+        int c = --b;
+
+
+
+        System.out.println("A is: "+a); //11
+        System.out.println("B is: "+b); // -10
+        System.out.println("C is: "+c); //-11
+        System.out.println("Now B is: "+b); //-11
+        System.out.println(-a++); // -11 first
+
+        System.out.println("BEFORE---");
+        System.out.println("B is: "+b); // -10
+        System.out.println("C is: "+c); //-11
+        int d = (--b + c--);
+        System.out.println("AFTER---");
+        System.out.println("B is: "+b); // -10
+        System.out.println("C is: "+c); //-11
+        System.out.println("D is: "+d);
+    }
+
+
+    @Test
+    public void testSorting() {
+        List<Integer> list = new ArrayList<>();
+        list.add(8);
+        list.add(2);
+        Collections.sort(list);
+        System.out.println(list);
+
+        System.out.println("Map ------");
+        Map<Integer,Integer> map = new HashMap<>();
+        map.put(500,5);
+        map.put(30,4);
+        map.put(11,2);
+        map.put(244,2);
+        //map.entrySet().stream().sorted().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        System.out.println("Using treeMap ---");
+        Map<Integer, Integer> treeMap = new TreeMap<>(map);
+        System.out.println(treeMap);
+
+        System.out.println("Another way --- Reverse Order");
+        treeMap = new TreeMap<>(Comparator.reverseOrder());
+        treeMap.putAll(map);
+        System.out.println(treeMap);
+
+        System.out.println("Sort by Value !!!!!");
+        List<Map.Entry<Integer,Integer>> listOfEntries = new ArrayList<>(map.entrySet());
+        Collections.sort(listOfEntries, (o1, o2) -> o1.getValue().compareTo(o2.getValue()));
+        // o1.compareTo(o2) increasing order sorting
+        //another way
+        Collections.sort(listOfEntries, Comparator.comparing(Map.Entry::getValue));
+        Map<Integer, Integer> tempMap = listOfEntries.stream()
+                .collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue(), (x, y) -> y, LinkedHashMap::new));
+        System.out.println(tempMap);
+
+
+        System.out.println("Another Lambda way ----");
+        map.entrySet().stream().sorted(Comparator.comparing(Map.Entry::getValue)).forEach(System.out::println);
+
+        //System.out.println(map);
+        // another way
+        tempMap = map.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (oldV, newV) -> oldV, LinkedHashMap::new));
+        System.out.println("Lamda :: "+tempMap);
+
+
+
+
 
     }
 
