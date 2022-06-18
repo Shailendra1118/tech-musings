@@ -3,12 +3,16 @@ package com.sports.rafael.basics.java;
 import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 import java.util.Stack;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class CoreOne {
@@ -44,5 +48,53 @@ public class CoreOne {
         List<Map.Entry<Integer,Integer>> sortedByValue =
                 map.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.reverseOrder())).collect(Collectors.toList());
         System.out.println(sortedByValue);
+    }
+
+    @Test
+    public void testTree() {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(100);
+        queue.add(200);
+        queue.add(400);
+        queue.remove(); //removeFirst
+        System.out.println(queue);
+        queue.element();
+
+        Set<Integer> tree = new TreeSet<>();
+        tree.add(100);
+        tree.add(90);
+        tree.add(200);
+        System.out.println(tree);
+        tree.remove(90);
+        System.out.println("Post removal: "+tree);
+
+    }
+
+    @Test
+    public void testLinkedList() {
+        List<Integer> list = new LinkedList<>();
+        list.add(100);
+        list.add(200);
+        list.add(300);
+        list.add(400);
+        list.remove(1);
+        list.remove(Integer.valueOf(300));
+        System.out.println(list);
+
+
+        LinkedList<Integer> ll = new LinkedList<>();
+        ll.add(100); //same as queue, add from the tail, addLast(x)
+        ll.addFirst(200);
+        ll.addLast(300);
+        System.out.println(ll);
+
+        Deque<Integer> deq = new LinkedList<>();
+
+    }
+
+
+    @Test
+    public void testTreeSet() {
+
     }
 }

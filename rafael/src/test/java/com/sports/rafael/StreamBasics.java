@@ -2,6 +2,7 @@ package com.sports.rafael;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -109,5 +110,21 @@ public class StreamBasics {
         int arr [] = { 2, 4, 5, 6, 7, 8};
         int res = Arrays.binarySearch(arr, 0); // overridden method with range, to and from index
         System.out.println("Res: "+res);
+    }
+
+    @Test
+    public void testStreamList() {
+        List<Integer> list = List.of(1,2,3,4,5,6); //returns unmodifiable list
+        list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+                                                                // let the element pass down if this condition satisfied with them
+        Stream<Integer> stream = list.stream().filter(i-> i>3); // filter is Predicate, if true means passed then it will pass that element in the output
+        list.removeIf(x -> x<3);
+        List<Integer> list1 = stream.collect(Collectors.toList());
+        System.out.println(list1);
     }
 }

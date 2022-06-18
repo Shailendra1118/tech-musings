@@ -27,7 +27,7 @@ public class ShortestUnsorted {
         Stack<Integer> stack = new Stack<>();
         stack.peek();
         StringBuilder sb = new StringBuilder();
-        sb.reverse()
+        sb.reverse();
 
 
     }
