@@ -145,4 +145,15 @@ public class Core {
         }
         System.out.println("Updated :: "+updated);
     }
+
+    @Test
+    public void weeklyTest() {
+        Character d = Character.valueOf('d');
+        Character a = Character.valueOf('a');
+        int res = a.compareTo(d);
+        System.out.println(res);
+        char c = 'a';
+        String roes = String.valueOf('a');
+
+    }
 }

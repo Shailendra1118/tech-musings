@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring_remote?createDatabaseIfNotExist=true&verifyServerCertificate=false&useSSL=false
+    username: root
+    password: password
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect:  org.hibernate.dialect.MySQL5InnoDBDialect
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      use-new-id-generator-mappings: false
+  batch:
+    initialize-schema: always
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          task: debug
+

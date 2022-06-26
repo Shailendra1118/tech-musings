@@ -2,28 +2,33 @@ package com.sports.rafael.algos;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.DoubleToIntFunction;
 
 public class PowerSet {
 
     private static List<List<Integer>> res = new ArrayList<>();
 
     public static void main(String[] args) {
-        int arr[] = {1,2,3,4};
-        //subSets(arr); // O(n * 2^n)
+        int arr[] = {1,2,3};
+        subSets(arr); // O(n * 2^n)
         //Arrays.sort(arr);
-        powerSetAnother(arr, new ArrayList<>(), 0);
+
+
+        //powerSetAnother(arr, new ArrayList<>(), 0);
 
         // List<Integer> temp = new ArrayList<>();
 
         // powerSetIncludingExcluding(arr, new ArrayList<>(), 0);
 
-        // System.out.println(res);
-        res.stream().forEach(list -> System.out.println(list));
+        System.out.println(res);
+
+        //res.stream().forEach(list -> System.out.println(list));
     }
 
     private static void subSets(int arr[]) {
         List<List<Integer>> res = new ArrayList<>();
         subsetsUtil(arr, 0, res, new ArrayList<>());
+        System.out.println("Total: "+res.size());
         System.out.println("Subsets: "+res);
     }
 

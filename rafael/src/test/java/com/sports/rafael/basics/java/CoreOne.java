@@ -2,6 +2,7 @@ package com.sports.rafael.basics.java;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Deque;
 import java.util.HashMap;
@@ -94,7 +95,11 @@ public class CoreOne {
 
 
     @Test
-    public void testTreeSet() {
+    public void testStreamFilter() {
+        int nums[] = {2,2,3,3,3,4};
+        int toCompare = nums[2];
 
+        int updatedNums[] = Arrays.stream(nums).filter(x -> Math.abs(x-nums[5])!=1).toArray();
+        System.out.println(Arrays.toString(updatedNums));
     }
 }
