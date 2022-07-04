@@ -156,4 +156,9 @@ public class Core {
         String roes = String.valueOf('a');
 
     }
+
+    @Test
+    public void testMod() {
+        System.out.println(0%0);
+    }
 }

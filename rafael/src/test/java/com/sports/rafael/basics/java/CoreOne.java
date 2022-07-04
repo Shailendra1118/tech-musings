@@ -101,5 +101,17 @@ public class CoreOne {
 
         int updatedNums[] = Arrays.stream(nums).filter(x -> Math.abs(x-nums[5])!=1).toArray();
         System.out.println(Arrays.toString(updatedNums));
+
+        Queue<Integer> que = new LinkedList<>();
+        que.add(10);
+        que.add(20);
+        int a = 0;
+        for(int i : que) {
+            System.out.println(i);
+            //que.poll();
+            a =+ 10;
+            System.out.println("sdf+ "+a);
+        }
+
     }
 }

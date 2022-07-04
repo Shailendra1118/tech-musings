@@ -21,7 +21,7 @@ public class XQueue<E> {
         tail = (tail+1) % capacity; // bracket is necessary as  % is higher precedence over +
         data[tail] = item;
         //update head
-        if(head == -1){ // in case of head left behind
+        if(head == -1){ // in case of head left behind // isEmpty() == true -> head = 0;
             head = tail;
         }
         System.out.println("Offered successfully: "+item);
