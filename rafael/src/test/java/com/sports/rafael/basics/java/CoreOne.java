@@ -109,9 +109,10 @@ public class CoreOne {
         for(int i : que) {
             System.out.println(i);
             //que.poll();
-            a =+ 10;
+            a += 10;  // =+ is not valid
             System.out.println("sdf+ "+a);
         }
 
+        int zero = -0;
     }
 }

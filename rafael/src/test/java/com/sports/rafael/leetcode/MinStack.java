@@ -5,6 +5,7 @@ import java.util.List;
 
 public class MinStack {
 
+    //Implement monotonic stack
     private List<Integer> values;
     private List<Integer> minValues;
     private int index;
