@@ -114,5 +114,9 @@ public class CoreOne {
         }
 
         int zero = -0;
+        StringBuilder sb= new StringBuilder();
+        sb.append("34");
+        sb.append("23");
+        System.out.println(Integer.valueOf(sb.reverse().toString()));
     }
 }

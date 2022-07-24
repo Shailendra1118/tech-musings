@@ -1,7 +1,10 @@
 package com.sports.rafael.leetcode;
 
 public class TargetSum {
-
+ /*
+ IT is not optimal and correct solution, It should be implemented
+ without evaluate expression as there is no need and it will be O(2^n) solution
+  */
     private static int count = 0;
     public static void main(String[] args) {
         int[] arr = {1,0,0,0};
