@@ -7,7 +7,7 @@ public class UnionFindRank {
      *  Ranks is for storing the number that indicates if how many nodes this node acts as ROOT
      *  if ranks[X] = 3, it means, height of tree, with X as root node, has length of 3
      */
-    
+
     public int[] roots;
     public int[] ranks;
     public UnionFindRank(int[] arr) {

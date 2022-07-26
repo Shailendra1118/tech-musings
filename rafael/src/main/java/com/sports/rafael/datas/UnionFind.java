@@ -10,7 +10,7 @@ public class UnionFind {
      *     while(x != roots[x])
      *         x = roots[x];
      *  return x;
-     *
+     *}
      *  union(int x, int y) {
      *      Here we do not use the for loop, everytime
      *      rootX = find(x);
@@ -19,12 +19,23 @@ public class UnionFind {
      *          root[rootX] = rootY;
      *      }
      *  }
-     * }
+     *
+     * // Improvement is Path compression - Recursive find operation
+     * Find function is the least efficient when it's skewed tree
+     *  int find(int x) {
+     *      if(x == roots[x])
+     *          return x;
+     *      else
+     *          return roots[x] = find(roots[x]);
+     *  }
+     *
      */
 
 
 
     public int[] roots;
+    static int count = 0;
+    //static T counter = 0;
     public UnionFind(int arr[]) {
         this.roots = new int[arr.length];
         //init
