@@ -119,4 +119,16 @@ public class CoreOne {
         sb.append("23");
         System.out.println(Integer.valueOf(sb.reverse().toString()));
     }
+
+
+    @Test
+    public void testCents() {
+        String amount = "$1923";
+        String withoutDollar = amount.substring(1);
+        System.out.println(withoutDollar);
+        String[] arr = withoutDollar.split("\\.");
+        System.out.println(Arrays.toString(arr));
+       System.out.println(arr[1]);
+
+    }
 }

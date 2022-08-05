@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Map.entry;
+
 public class Core {
 
     @Test
@@ -159,6 +161,12 @@ public class Core {
 
     @Test
     public void testMod() {
-        System.out.println(0%0);
+        //System.out.println(0%0); Divide by Zero ArithmaticException
+        Map<String,String> map = Map.ofEntries(java.util.Map.entry("Shailendra", "Yadav"),
+                java.util.Map.entry("Aman", "Chugh"));
+        System.out.println(map);
+
+        Map<String,Integer> map1 = Map.of("Shailendra", 100, "Aman", 98);
+        System.out.println(map1);
     }
 }
