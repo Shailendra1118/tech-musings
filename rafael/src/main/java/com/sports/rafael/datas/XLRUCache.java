@@ -48,7 +48,6 @@ public class XLRUCache implements Cache{
             setHead(newNode);
             map.put(key, newNode);
         }
-
     }
 
     @Override
@@ -73,6 +72,7 @@ public class XLRUCache implements Cache{
         if(node.next != null) {
             node.next.prev = node.prev;
         }else{
+            //if last node
             tail = node.prev;
         }
     }

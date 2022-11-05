@@ -26,13 +26,13 @@ public class UnionFindRank {
         if(rootX != rootY) {
             //check ranks to make decision, attach the shorter tree under taller tree
             if(ranks[rootX] > ranks[rootY]) {
-                //x is taller tree
+                //x is taller tree, therefore make rootX as new root for both
                 roots[rootY] = rootX; // remember not roots[x OR y], we are attaching roots
             } else if(ranks[rootX] < ranks[rootY])
                 roots[rootX] = rootY; //Y is taller
             else {
                 //if both are equal
-                roots[rootX] = rootY;
+                roots[rootX] = rootY; // making rootY as root of X, thats why increase height of Y
                 ranks[rootY] += 1;
             }
         }

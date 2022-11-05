@@ -169,4 +169,10 @@ public class Core {
         Map<String,Integer> map1 = Map.of("Shailendra", 100, "Aman", 98);
         System.out.println(map1);
     }
+
+    @Test
+    public void testArrayInit() {
+        //System.out.println(new[] String{"1","2"});
+        System.out.println(new String[]{"1","2"}); //bracket should come just before {} braces
+    }
 }

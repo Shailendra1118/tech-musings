@@ -2,6 +2,7 @@ package com.sports.rafael.basics.java;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Deque;
@@ -131,4 +132,93 @@ public class CoreOne {
        System.out.println(arr[1]);
 
     }
+
+    @Test
+    public void testConversion() {
+        String str = "234";
+        int d = str.charAt(0)-'0';
+        System.out.println(str.charAt(0));
+        System.out.println(d);
+
+        "ABC".chars().mapToObj(c -> String.valueOf((char)c))
+                .collect(Collectors.toList()).forEach(list -> System.out.println(list));
+
+        Map<Integer, String> map = new HashMap<>();
+        map.put(2, "abc");
+        map.put(3, "def");
+        map.put(4, "ghi");
+        map.put(5, "jkl");
+        map.put(6, "mno");
+        map.put(7, "pqrs");
+        map.put(8, "tuv");
+        map.put(9, "wxyz");
+        "234".chars().mapToObj(c -> Integer.valueOf(c-'0'))
+                .map(n -> map.get(n))
+                .collect(Collectors.toList()).forEach(list -> System.out.println(list));
+
+    }
+
+
+    @Test
+    public void testStack(){
+        Stack<Integer> stck = new Stack<>();
+        //stck.pop();
+        boolean isNumeric = "-1".chars().allMatch( Character::isDigit );
+        System.out.println(isNumeric);
+        int[][] arr = new int[10][10];
+        System.out.println(Arrays.deepToString(arr));
+
+        String str = "1A";
+        int val = str.charAt(0)-'0';
+        System.out.println(val);
+
+        List<Integer> list = new ArrayList<>();
+        list.add(20);
+        list.add(30);
+        Integer[] arrInt = list.toArray(new Integer[0]);
+        int[] intArr = Arrays.stream(arrInt).mapToInt(i -> i).toArray();
+        System.out.println(Arrays.toString(intArr));
+    }
+
+    @Test
+    public void testIntHex() {
+        int a = 10;
+        long unsignedValue = a & 0xffffffffL;
+        System.out.println("unsignedValue: "+unsignedValue);
+    }
+
+
+    @Test
+    public void testNums() {
+        int input[] = {3,1,2,3,6,4};
+        int[] res = findCorruptPair(input);
+        System.out.println(Arrays.toString(res));
+    }
+
+    public int[] findCorruptPair(int[] nums) {
+
+        // Write your code here
+
+        int[] temp = new int[nums.length+1];
+        int duplicate = -1;
+
+        for(int i=0; i<nums.length; i++) {
+            if(temp[i] != 0 && temp[nums[i]] != i) {
+                duplicate = nums[i];
+                break;
+            }else{
+                temp[nums[i]-1] = nums[i];
+            }
+        }
+
+        int missing = -1;
+        for(int i=1; i<nums.length; i++) {
+            if(temp[i] == 0)
+                missing = i;
+        }
+
+
+        return new int[]{missing, duplicate};
+    }
+
 }

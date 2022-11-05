@@ -45,7 +45,7 @@ public class Reliscore {
             int num = in.nextInt();
             if (num < 0)
                 break;
-            arrayList.add(new Integer(num));
+            arrayList.add(Integer.valueOf(num));
         }
         int result = processArray(arrayList);
         System.out.println(result);
