@@ -21,7 +21,6 @@ public class NextGreaterAtRight {
             }
             stack.push(i);
         }
-
         System.out.println(Arrays.toString(ans));
     }
 }

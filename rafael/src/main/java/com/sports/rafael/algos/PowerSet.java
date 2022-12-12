@@ -4,17 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.DoubleToIntFunction;
 
+/**
+ * This is printing all possible subsequences of the array
+ */
 public class PowerSet {
 
     private static List<List<Integer>> res = new ArrayList<>();
 
     public static void main(String[] args) {
         int arr[] = {1,2,3};
-        subSets(arr); // O(n * 2^n)
+        //subSets(arr); // O(n * 2^n)
         //Arrays.sort(arr);
 
 
-        //powerSetAnother(arr, new ArrayList<>(), 0);
+        powerSetAnother(arr, new ArrayList<>(), 0);
 
         // List<Integer> temp = new ArrayList<>();
 
@@ -46,6 +49,12 @@ public class PowerSet {
         }
     }
 
+    /**
+     * Looks like it is backtracking algorithm
+     * @param arr
+     * @param list
+     * @param start
+     */
     public static void powerSet(int[] arr, List<Integer> list, int start) {
 
         for(int i= start; i < arr.length; i++){

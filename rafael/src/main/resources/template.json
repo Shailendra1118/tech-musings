@@ -1,0 +1,1299 @@
+{
+  "footer": {
+    "default": {
+      "components": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "thickness": "10px",
+                  "type": "verticalSpacer",
+                  "properties": {
+                    "visible": true
+                  }
+                },
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "data": "**Schneider Electric Digital Inc**  \nOne Boston Place, Suite 2700  \nBoston, MA 02108  \nUSA  \n*EIN: 42-123456789*",
+                          "description": "",
+                          "style": {
+                            "padding-top": "0pt",
+                            "padding-left": "5pt",
+                            "width": "100%",
+                            "font-size": "6pt",
+                            "line-height": "8pt"
+                          },
+                          "type": "markdownText",
+                          "properties": {
+                            "visible": true,
+                            "selected": false
+                          }
+                        }
+                      ],
+                      "description": "",
+                      "style": {
+                        "width": "60%"
+                      },
+                      "type": "cell",
+                      "properties": {
+                        "visible": true,
+                        "position": "left",
+                        "selected": false
+                      }
+                    },
+                    {
+                      "components": [
+                        {
+                          "data": "**WIRE PAYMENT INSTRUCTIONS**  \nBank: JPMorgan Chase Bank, N.A.  \nRouting # (Wires): 021000021  \nSWIFT BIC Code: CHASUS33  \nAccount #: 387161638  \nAccount Name: Schneider Electric Digital, Inc.  \nAddress: 200 N Martingale Rd. Schaumburg, IL 60173-2033  \n**REFERENCE: {{Invoice Number}}**",
+                          "description": "",
+                          "style": {
+                            "padding-top": "0pt",
+                            "padding-left": "5pt",
+                            "width": "100%",
+                            "font-size": "6pt",
+                            "line-height": "8pt",
+                            "text-align": "right"
+                          },
+                          "type": "markdownText",
+                          "properties": {
+                            "visible": true,
+                            "selected": false
+                          }
+                        }
+                      ],
+                      "description": "",
+                      "style": {
+                        "width": "60%"
+                      },
+                      "type": "cell",
+                      "properties": {
+                        "visible": true,
+                        "position": "left",
+                        "selected": false
+                      }
+                    }
+                  ],
+                  "description": "",
+                  "style": {
+                    "border-top": "1pt solid #575757",
+                    "width": "100%",
+                    "margin-top": "1px"
+                  },
+                  "type": "row",
+                  "properties": {
+                    "visible": true,
+                    "position": "left",
+                    "selected": false
+                  }
+                },
+                {
+                  "description": "",
+                  "style": {
+                    "border-radius": "0pt",
+                    "padding-top": "0pt",
+                    "padding-left": "0pt",
+                    "width": "100%",
+                    "padding-bottom": "0pt",
+                    "border-color": "#474747",
+                    "border-width": "0pt",
+                    "border-style": "none",
+                    "padding-right": "0pt"
+                  },
+                  "type": "image",
+                  "properties": {
+                    "visible": true,
+                    "src": "https://ddds010i915yc.cloudfront.net/albums/150ac241-cb3a-46d9-a024-9a82a39b8521/ccb8e605-8466-4640-a909-a0a4b73057dc",
+                    "position": "left",
+                    "selected": false
+                  }
+                }
+              ],
+              "description": "",
+              "style": {
+                "width": "100%"
+              },
+              "type": "cell",
+              "properties": {
+                "visible": true,
+                "selected": false
+              }
+            }
+          ],
+          "style": {
+            "color": "#14ff14"
+          },
+          "type": "row",
+          "properties": {
+            "visible": true
+          }
+        }
+      ],
+      "description": "Default footer on every page of pdf",
+      "style": {
+        "height": "90px"
+      },
+      "type": "footer",
+      "properties": {}
+    }
+  },
+  "header": {
+    "default": {
+      "components": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "style": {
+                    "margin-left": "280px",
+                    "width": "100%",
+                    "padding-bottom": "0",
+                    "height": "70px",
+                    "text-align": "right"
+                  },
+                  "type": "image",
+                  "properties": {
+                    "visible": true,
+                    "src": "https://ddds010i915yc.cloudfront.net/albums/150ac241-cb3a-46d9-a024-9a82a39b8521/16032d49-2771-4695-a3a0-e48cc528efd2",
+                    "position": "right",
+                    "selected": false
+                  }
+                },
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "data": "Invoice {{Invoice Number}}",
+                          "description": "",
+                          "style": {
+                            "background-color": "#FFFFFF",
+                            "border-radius": "0pt",
+                            "padding-top": "0pt",
+                            "padding-left": "0pt",
+                            "width": "100%",
+                            "padding-bottom": "0pt",
+                            "font-size": "9pt",
+                            "border-color": "#474747",
+                            "border-width": "3pt",
+                            "font-family": "Arial",
+                            "border-style": "none",
+                            "padding-right": "1pt"
+                          },
+                          "type": "text",
+                          "properties": {
+                            "visible": true,
+                            "position": "left",
+                            "selected": false
+                          }
+                        }
+                      ],
+                      "style": {
+                        "width": "50%"
+                      },
+                      "type": "cell",
+                      "properties": {
+                        "visible": true,
+                        "selected": false
+                      }
+                    },
+                    {
+                      "components": [
+                        {
+                          "data": "Page {{Page Number}} / {{Total Pages}}",
+                          "style": {
+                            "font-size": "9pt",
+                            "font-family": "Arial",
+                            "text-align": "right"
+                          },
+                          "type": "pageNumber",
+                          "properties": {
+                            "visible": true
+                          }
+                        }
+                      ],
+                      "style": {
+                        "width": "50%"
+                      },
+                      "type": "cell",
+                      "properties": {
+                        "visible": true,
+                        "selected": false
+                      }
+                    }
+                  ],
+                  "style": {},
+                  "type": "row",
+                  "properties": {
+                    "visible": true,
+                    "selected": false
+                  }
+                }
+              ],
+              "style": {
+                "width": "100%"
+              },
+              "type": "cell",
+              "properties": {
+                "visible": true,
+                "selected": false
+              }
+            }
+          ],
+          "style": {},
+          "type": "row",
+          "properties": {
+            "visible": true
+          }
+        }
+      ],
+      "description": "Default header on every page",
+      "style": {
+        "height": "123px"
+      },
+      "type": "header",
+      "properties": {}
+    },
+    "first": null
+  },
+  "page": {
+    "pageStyle": {
+      "pageMargin": {
+        "top": "45px",
+        "left": "45px",
+        "bottom": "45px",
+        "right": "45px"
+      }
+    },
+    "globalStyles": {
+      "paragraph": {
+        "color": "#474747",
+        "font-size": "10pt",
+        "font-family": "Arial",
+        "text-align": "left"
+      },
+      "tableBody": {
+        "color": "#707070",
+        "font-weight": "normal",
+        "font-size": "10pt",
+        "font-family": "Arial",
+        "text-align": "left"
+      },
+      "link": {
+        "color": "#474747",
+        "text-decoration": "none"
+      },
+      "title": {
+        "color": "#474747",
+        "font-weight": "normal",
+        "font-size": "10pt",
+        "font-family": "Arial",
+        "text-align": "left"
+      },
+      "tableHeader": {
+        "color": "#707070",
+        "font-weight": "bold",
+        "font-size": "10pt",
+        "font-family": "Arial",
+        "text-align": "left"
+      }
+    },
+    "elementStyles": [],
+    "properties": {
+      "displayHeaderOnFirstPage": true,
+      "format": "A4",
+      "width": "8.5in",
+      "height": "11in",
+      "displayFooterOnFirstPage": true
+    }
+  },
+  "body": {
+    "components": [
+      {
+        "components": [
+          {
+            "thickness": "30px",
+            "type": "verticalSpacer",
+            "properties": {
+              "visible": true,
+              "selected": false
+            }
+          },
+          {
+            "components": [
+              {
+                "components": [
+                  {
+                    "thickness": "30px",
+                    "type": "verticalSpacer",
+                    "properties": {
+                      "visible": true,
+                      "selected": false
+                    }
+                  },
+                  {
+                    "components": [
+                      {
+                        "components": [
+                          {
+                            "data": "**{{First Name}} {{Last Name}}**  \n**{{Customer Company Name}}**  \n**{{Street 1}}** \n**{{Street 2}}**  \n**{{City}} {{State}} {{Zip Code}}**  \n**{{Country}}**  \nCommercial Registration Id:{{Customer Company commercial_registration_id}}  \n**{{Email}}**  \n",
+                            "description": "Customer Address",
+                            "style": {
+                              "width": "100%",
+                              "line-height": "15pt"
+                            },
+                            "type": "markdownText",
+                            "properties": {
+                              "visible": true,
+                              "selected": false
+                            }
+                          }
+                        ],
+                        "description": "",
+                        "style": {
+                          "width": "80%"
+                        },
+                        "type": "cell",
+                        "properties": {
+                          "visible": true,
+                          "selected": false
+                        }
+                      }
+                    ],
+                    "style": {},
+                    "type": "row",
+                    "properties": {
+                      "visible": true,
+                      "selected": false
+                    }
+                  }
+                ],
+                "description": "",
+                "style": {
+                  "width": "50%"
+                },
+                "type": "cell",
+                "properties": {
+                  "visible": true,
+                  "selected": false
+                }
+              },
+              {
+                "components": [
+                  {
+                    "data": "Invoice {{Invoice Number}}",
+                    "description": "",
+                    "style": {
+                      "padding-top": "10pt",
+                      "font-weight": "bold",
+                      "padding-left": "0pt",
+                      "padding-bottom": "0pt",
+                      "font-size": "16pt",
+                      "border-color": "#474747",
+                      "background-color": "#FFFFFF",
+                      "border-radius": "0pt",
+                      "width": "100%",
+                      "border-width": "3pt",
+                      "border-style": "none",
+                      "padding-right": "0pt",
+                      "text-align": "left"
+                    },
+                    "type": "text",
+                    "properties": {
+                      "visible": true,
+                      "position": "left",
+                      "selected": false
+                    }
+                  },
+                  {
+                    "data": "PAID",
+                    "description": "",
+                    "style": {
+                      "padding-top": "0pt",
+                      "padding-left": "0pt",
+                      "padding-bottom": "0pt",
+                      "font-size": "12pt",
+                      "border-color": "#9dc773",
+                      "line-height": "5px",
+                      "background-color": "#e0f8d4",
+                      "border-radius": "0pt",
+                      "width": "100%",
+                      "border-width": "2pt",
+                      "border-style": "solid",
+                      "margin-bottom": "10px",
+                      "padding-right": "0pt",
+                      "text-align": "center"
+                    },
+                    "isConditional": true,
+                    "type": "markdownText",
+                    "properties": {
+                      "visible": true,
+                      "position": "left",
+                      "selected": false
+                    },
+                    "conditionalExpr": {
+                      "effects": {
+                        "UNPAID": {
+                          "update": {
+                            "data": "UNPAID",
+                            "style": {
+                              "background-color": "#e8bebe",
+                              "border-color": "#fc9f9f",
+                              "border-width": "2pt"
+                            }
+                          },
+                          "type": "update"
+                        }
+                      },
+                      "condition": {
+                        "operator": "ValueOf",
+                        "key": "{{Invoice Status}}"
+                      },
+                      "type": "conditionalExpr"
+                    }
+                  },
+                  {
+                    "data": {
+                      "itemSpecs": {
+                        "values": [
+                          {
+                            "style": {
+                              "color": "#5c5757",
+                              "font-weight": "normal",
+                              "font-size": "11pt",
+                              "text-align": "right"
+                            },
+                            "properties": {}
+                          }
+                        ],
+                        "label": {
+                          "style": {
+                            "font-weight": "normal",
+                            "font-size": "12pt"
+                          },
+                          "properties": {}
+                        }
+                      },
+                      "itemList": [
+                        {
+                          "values": [
+                            {
+                              "data": "{{Invoice Date}}",
+                              "style": {
+                                "padding-bottom": "5px",
+                                "font-family": "Arial"
+                              }
+                            }
+                          ],
+                          "label": {
+                            "data": "Invoice Date:",
+                            "style": {
+                              "padding-bottom": "5px",
+                              "font-family": "Arial"
+                            }
+                          }
+                        },
+                        {
+                          "values": [
+                            {
+                              "data": "",
+                              "style": {
+                                "font-family": "Arial"
+                              },
+                              "isConditional": true,
+                              "conditionalExpr": {
+                                "effects": {
+                                  "UNPAID": {
+                                    "update": {
+                                      "data": "{{Invoice Due Date}}",
+                                      "style": {
+                                        "padding-top": "5px",
+                                        "padding-bottom": "15px",
+                                        "font-family": "Arial"
+                                      }
+                                    },
+                                    "type": "update"
+                                  },
+                                  "PAID": {
+                                    "update": {
+                                      "data": "",
+                                      "style": {
+                                        "padding-bottom": "0",
+                                        "font-size": "0px",
+                                        "font-family": "Arial",
+                                        "line-height": "0px"
+                                      }
+                                    },
+                                    "type": "update"
+                                  }
+                                },
+                                "condition": {
+                                  "operator": "ValueOf",
+                                  "key": "{{Invoice Status}}"
+                                },
+                                "type": "conditionalExpr"
+                              }
+                            }
+                          ],
+                          "label": {
+                            "data": "",
+                            "style": {
+                              "font-family": "Arial"
+                            },
+                            "isConditional": true,
+                            "conditionalExpr": {
+                              "effects": {
+                                "UNPAID": {
+                                  "update": {
+                                    "data": "Due Date:",
+                                    "style": {
+                                      "padding-top": "5px",
+                                      "padding-bottom": "15px",
+                                      "font-family": "Arial"
+                                    }
+                                  },
+                                  "type": "update"
+                                },
+                                "PAID": {
+                                  "update": {
+                                    "data": "",
+                                    "style": {
+                                      "padding-bottom": "0",
+                                      "font-size": "0px",
+                                      "font-family": "Arial",
+                                      "line-height": "0px"
+                                    }
+                                  },
+                                  "type": "update"
+                                }
+                              },
+                              "condition": {
+                                "operator": "ValueOf",
+                                "key": "{{Invoice Status}}"
+                              },
+                              "type": "conditionalExpr"
+                            }
+                          }
+                        },
+                        {
+                          "values": [
+                            {
+                              "data": "{{Amount Due}}",
+                              "style": {
+                                "border-top": "1pt solid #707070",
+                                "padding-top": "10px",
+                                "font-weight": "bold",
+                                "font-family": "Arial"
+                              }
+                            }
+                          ],
+                          "label": {
+                            "data": "Amount Due:",
+                            "style": {
+                              "border-top": "1pt solid #707070",
+                              "padding-top": "10px",
+                              "font-weight": "bold",
+                              "font-family": "Arial"
+                            }
+                          }
+                        }
+                      ],
+                      "style": {},
+                      "type": "listData",
+                      "properties": {
+                        "border": {
+                          "rowBorder": false,
+                          "color": "",
+                          "colBorder": false,
+                          "width": "0pt",
+                          "style": "solid",
+                          "outerBorder": false
+                        }
+                      }
+                    },
+                    "style": {},
+                    "type": "list",
+                    "title": {
+                      "data": "List Title",
+                      "style": {}
+                    },
+                    "properties": {
+                      "displayTitle": false,
+                      "visible": true,
+                      "selected": false
+                    }
+                  }
+                ],
+                "description": "",
+                "style": {
+                  "width": "50%"
+                },
+                "type": "cell",
+                "properties": {
+                  "visible": true,
+                  "selected": false
+                }
+              }
+            ],
+            "style": {},
+            "type": "row",
+            "properties": {
+              "visible": true,
+              "selected": false
+            }
+          },
+          {
+            "thickness": "30px",
+            "type": "verticalSpacer",
+            "properties": {
+              "visible": true,
+              "selected": false
+            }
+          },
+          {
+            "customSortingCriteria": [
+              {
+                "key": "{{Cost Type}}",
+                "order": [
+                  "{{Product Type - Recurring Flat}}",
+                  "{{Product Type - Recurring Per Unit}}",
+                  "{{Product Type - One Time Flat}}",
+                  "{{Product Type - One Time Per Unit}}",
+                  "{{Product Type - Setup Fee}}",
+                  "{{Product Type - Setup Fee Per Unit}}",
+                  "{{Product Type - Metered Usage}}",
+                  "{{Product Type - Contract Fee}}",
+                  "{{Product Type - Discount Flat}}",
+                  "{{Product Type - Discount Per Unit}}",
+                  "{{Product Type - Additional Fee}}",
+                  "{{Product Type - Termination Fee}}",
+                  "{{Product Type - Add-On}}"
+                ]
+              },
+              {
+                "key": "{{IS CREDIT}}",
+                "order": [
+                  "{{Product Type - Non-Credit}}",
+                  "{{Product Type - Credit}}"
+                ]
+              }
+            ],
+            "groupingCriteria": [
+              "{{Subscription ID}}",
+              "{{Product ID}}",
+              "{{Edition ID}}"
+            ],
+            "data": "{{Invoice Lines}}",
+            "sortingCriteria": null,
+            "description": "Invoice table",
+            "header": {
+              "columns": [
+                {
+                  "description": "Column 1 header",
+                  "style": {
+                    "padding-left": "5pt",
+                    "width": "25%"
+                  },
+                  "label": "Description",
+                  "properties": {
+                    "visible": true
+                  }
+                },
+                {
+                  "description": "Column 2 header",
+                  "style": {
+                    "width": "17%"
+                  },
+                  "label": "Charge Type",
+                  "properties": {
+                    "visible": true
+                  }
+                },
+                {
+                  "description": "Column 3 header",
+                  "style": {
+                    "width": "25%"
+                  },
+                  "label": "Period",
+                  "properties": {
+                    "visible": true
+                  }
+                },
+                {
+                  "description": "Column 4 header",
+                  "style": {
+                    "width": "10%"
+                  },
+                  "label": "Quantity",
+                  "properties": {
+                    "visible": true
+                  }
+                },
+                {
+                  "description": "Column 5 header",
+                  "style": {
+                    "width": "13%",
+                    "text-align": "right"
+                  },
+                  "label": "Price",
+                  "properties": {
+                    "visible": true
+                  }
+                },
+                {
+                  "description": "Column 6 header",
+                  "style": {
+                    "width": "10%",
+                    "padding-right": "5pt",
+                    "text-align": "right"
+                  },
+                  "label": "Total",
+                  "properties": {
+                    "visible": true
+                  }
+                }
+              ],
+              "style": {
+                "background-color": "#ececec",
+                "font-size": "8pt",
+                "height": "80px"
+              },
+              "properties": {
+                "visible": true
+              }
+            },
+            "style": {
+              "color": "#707070",
+              "font-family": "Arial",
+              "border-collapse": "collapse"
+            },
+            "type": "table",
+            "body": {
+              "columns": [
+                {
+                  "data": "**{{Product Name}} - {{Edition Name}}**  \nProduct ID:{{Product Id}}  \nCustomer Purchase Order:{{InvoiceLine Order order_external_id}}  \nOrder #:{{Order Id}}",
+                  "style": {
+                    "padding-left": "5pt"
+                  },
+                  "type": "markdownText",
+                  "properties": {
+                    "visible": true,
+                    "isGrouped": false
+                  }
+                },
+                {
+                  "data": "{{Product Description}}",
+                  "style": {
+                    "line-height": "15pt",
+                    "padding-right": "12pt"
+                  },
+                  "type": "text",
+                  "properties": {
+                    "visible": true,
+                    "isGrouped": true
+                  }
+                },
+                {
+                  "data": "{{Billing Period}}",
+                  "style": {},
+                  "type": "text",
+                  "properties": {
+                    "visible": true,
+                    "isGrouped": false
+                  }
+                },
+                {
+                  "data": "{{Quantity}}",
+                  "style": {
+                    "text-align": "right",
+                    "padding-right": "30pt"
+                  },
+                  "type": "text",
+                  "properties": {
+                    "visible": true,
+                    "isGrouped": false
+                  }
+                },
+                {
+                  "data": "{{Price Per Unit}}",
+                  "style": {
+                    "text-align": "right"
+                  },
+                  "type": "text",
+                  "properties": {
+                    "visible": true,
+                    "isGrouped": false
+                  }
+                },
+                {
+                  "data": "{{Line Total}}",
+                  "style": {
+                    "padding-right": "5pt",
+                    "text-align": "right"
+                  },
+                  "type": "text",
+                  "properties": {
+                    "visible": true,
+                    "isGrouped": false
+                  }
+                }
+              ],
+              "style": {
+                "vertical-align": "text-top",
+                "border-bottom": "1pt solid #EAEAEA"
+              },
+              "properties": {
+                "visible": true
+              }
+            },
+            "properties": {
+              "visible": true,
+              "selected": false
+            }
+          },
+          {
+            "components": [
+              {
+                "components": [
+                  {
+                    "description": "Currency",
+                    "style": {
+                      "padding-left": "5pt"
+                    },
+                    "label": {
+                      "data": "Currency: USD",
+                      "style": {
+                        "width": "50%",
+                        "text-align": "left"
+                      },
+                      "type": "text",
+                      "properties": {
+                        "visible": true
+                      }
+                    },
+                    "type": "field",
+                    "properties": {
+                      "orientation": "horizontal",
+                      "visible": true
+                    },
+                    "content": {
+                      "data": "",
+                      "style": {
+                        "width": "50%",
+                        "text-align": "right"
+                      },
+                      "type": "text",
+                      "properties": {
+                        "visible": true
+                      }
+                    }
+                  }
+                ],
+                "description": "Currency summary",
+                "style": {
+                  "color": "#575757",
+                  "width": "40%"
+                },
+                "type": "cell",
+                "properties": {
+                  "visible": true,
+                  "selected": false
+                }
+              },
+              {
+                "components": [
+                  {
+                    "description": "Subtotal",
+                    "style": {},
+                    "label": {
+                      "data": "Subtotal:",
+                      "style": {
+                        "width": "50%",
+                        "padding-bottom": "0pt",
+                        "margin-bottom": "0px",
+                        "text-align": "left"
+                      },
+                      "type": "text",
+                      "properties": {
+                        "visible": true
+                      }
+                    },
+                    "type": "field",
+                    "properties": {
+                      "orientation": "horizontal",
+                      "visible": true,
+                      "selected": false
+                    },
+                    "content": {
+                      "data": "{{Subtotal}}",
+                      "style": {
+                        "font-weight": "bold",
+                        "width": "50%",
+                        "padding-bottom": "0px",
+                        "margin-bottom": "0px",
+                        "text-align": "right"
+                      },
+                      "type": "text",
+                      "properties": {
+                        "visible": true
+                      }
+                    }
+                  },
+                  {
+                    "customSortingCriteria": [],
+                    "groupingCriteria": [],
+                    "data": "{{Tax Summary}}",
+                    "sortingCriteria": null,
+                    "description": "Tax Table",
+                    "header": {
+                      "columns": [],
+                      "style": {},
+                      "properties": {
+                        "visible": true
+                      }
+                    },
+                    "style": {
+                      "padding-top": "0px",
+                      "color": "#575757",
+                      "padding-bottom": "5px",
+                      "font-family": "Arial",
+                      "margin-top": "5px",
+                      "margin-bottom": "0px",
+                      "border-bottom": "1pt solid #575757"
+                    },
+                    "type": "table",
+                    "body": {
+                      "columns": [
+                        {
+                          "data": "{{Tax Type}}:",
+                          "style": {
+                            "padding-top": "0px",
+                            "color": "#575757",
+                            "font-size": "10pt",
+                            "padding-bottom": "0px",
+                            "margin-top": "0px",
+                            "margin-bottom": "0px",
+                            "text-align": "left"
+                          },
+                          "type": "text",
+                          "properties": {
+                            "visible": true
+                          }
+                        },
+                        {
+                          "data": "{{Tax Amount}}",
+                          "style": {
+                            "padding-top": "0px",
+                            "color": "#575757",
+                            "font-weight": "bold",
+                            "font-size": "10pt",
+                            "padding-bottom": "0px",
+                            "margin-top": "0px",
+                            "margin-bottom": "0px",
+                            "text-align": "right"
+                          },
+                          "type": "text",
+                          "properties": {
+                            "visible": true
+                          }
+                        }
+                      ],
+                      "style": {
+                        "padding-top": "0px",
+                        "padding-bottom": "0px",
+                        "font-size": "8pt",
+                        "margin-top": "0px",
+                        "margin-bottom": "0px"
+                      },
+                      "properties": {
+                        "visible": true
+                      }
+                    },
+                    "properties": {
+                      "visible": true,
+                      "selected": false
+                    }
+                  },
+                  {
+                    "style": {
+                      "border-bottom": "none"
+                    },
+                    "label": {
+                      "data": "Amount Paid:",
+                      "style": {
+                        "padding-top": "0px",
+                        "width": "50%",
+                        "padding-bottom": "0px",
+                        "margin-top": "5px",
+                        "margin-bottom": "0px",
+                        "text-align": "left"
+                      },
+                      "type": "text",
+                      "properties": {
+                        "visible": true
+                      }
+                    },
+                    "type": "field",
+                    "properties": {
+                      "orientation": "horizontal",
+                      "visible": true,
+                      "selected": false
+                    },
+                    "content": {
+                      "data": "{{Amount Paid}}",
+                      "style": {
+                        "padding-top": "0px",
+                        "font-weight": "bold",
+                        "width": "50%",
+                        "padding-bottom": "0px",
+                        "margin-top": "5px",
+                        "margin-bottom": "0px",
+                        "text-align": "right"
+                      },
+                      "type": "text",
+                      "properties": {
+                        "visible": true
+                      }
+                    }
+                  },
+                  {
+                    "style": {
+                      "color": "#474747",
+                      "font-weight": "bold"
+                    },
+                    "label": {
+                      "data": "Amount Due:",
+                      "style": {
+                        "padding-top": "5px",
+                        "width": "50%",
+                        "padding-bottom": "0px",
+                        "margin-top": "0px",
+                        "margin-bottom": "0px",
+                        "text-align": "left"
+                      },
+                      "type": "text",
+                      "properties": {
+                        "visible": true
+                      }
+                    },
+                    "type": "field",
+                    "properties": {
+                      "orientation": "horizontal",
+                      "visible": true,
+                      "selected": false
+                    },
+                    "content": {
+                      "data": "{{Balance Due}}",
+                      "style": {
+                        "padding-top": "5px",
+                        "font-weight": "bold",
+                        "width": "50%",
+                        "padding-bottom": "0px",
+                        "margin-top": "0px",
+                        "margin-bottom": "0px",
+                        "text-align": "right"
+                      },
+                      "type": "text",
+                      "properties": {
+                        "visible": true
+                      }
+                    }
+                  }
+                ],
+                "description": "Tax summary",
+                "style": {
+                  "color": "#575757",
+                  "width": "40%"
+                },
+                "type": "cell",
+                "properties": {
+                  "visible": true,
+                  "position": "right"
+                }
+              }
+            ],
+            "style": {
+              "page-break-inside": "avoid"
+            },
+            "type": "row",
+            "properties": {
+              "visible": true
+            }
+          },
+          {
+            "thickness": "30pt",
+            "type": "verticalSpacer",
+            "properties": {
+              "visible": true,
+              "selected": false
+            }
+          },
+          {
+            "customSortingCriteria": [],
+            "groupingCriteria": [],
+            "data": "{{Invoice Payments}}",
+            "sortingCriteria": null,
+            "description": "Payment table",
+            "header": {
+              "columns": [
+                {
+                  "description": "Column 1 header",
+                  "style": {
+                    "padding-left": "5pt",
+                    "width": "15%"
+                  },
+                  "label": "ID",
+                  "properties": {
+                    "visible": true
+                  }
+                },
+                {
+                  "description": "Column 2 header",
+                  "style": {
+                    "width": "20%"
+                  },
+                  "label": "Date",
+                  "properties": {
+                    "visible": true
+                  }
+                },
+                {
+                  "description": "Column 3 header",
+                  "style": {
+                    "width": "25%"
+                  },
+                  "label": "Payment Method",
+                  "properties": {
+                    "visible": true
+                  }
+                },
+                {
+                  "description": "Column 4 header",
+                  "style": {
+                    "width": "25%"
+                  },
+                  "label": "Status",
+                  "properties": {
+                    "visible": true
+                  }
+                },
+                {
+                  "description": "Column 5 header",
+                  "style": {
+                    "width": "15%",
+                    "text-align": "right",
+                    "padding-right": "5pt"
+                  },
+                  "label": "Total",
+                  "properties": {
+                    "visible": true
+                  }
+                }
+              ],
+              "style": {
+                "background-color": "#ececec",
+                "font-size": "9pt",
+                "height": "80px"
+              },
+              "properties": {
+                "visible": true
+              }
+            },
+            "style": {
+              "color": "#707070",
+              "font-family": "Arial",
+              "border-collapse": "collapse"
+            },
+            "type": "table",
+            "body": {
+              "columns": [
+                {
+                  "data": "{{Payment Id}}",
+                  "style": {
+                    "padding-left": "5pt"
+                  },
+                  "type": "markdownText",
+                  "properties": {
+                    "visible": true,
+                    "isGrouped": false
+                  }
+                },
+                {
+                  "data": "{{Payment Date}}",
+                  "style": {
+                    "line-height": "15pt",
+                    "padding-right": "12pt"
+                  },
+                  "type": "markdownText",
+                  "properties": {
+                    "visible": true,
+                    "isGrouped": true
+                  }
+                },
+                {
+                  "data": "{{Payment Method}}",
+                  "style": {},
+                  "type": "text",
+                  "properties": {
+                    "visible": true,
+                    "isGrouped": false
+                  }
+                },
+                {
+                  "data": "{{Payment Status}}",
+                  "style": {
+                    "padding-right": "5pt"
+                  },
+                  "type": "text",
+                  "properties": {
+                    "visible": true,
+                    "isGrouped": false
+                  }
+                },
+                {
+                  "data": "{{Payment Amount}}",
+                  "style": {
+                    "text-align": "right",
+                    "padding-right": "5pt"
+                  },
+                  "type": "text",
+                  "properties": {
+                    "visible": true,
+                    "isGrouped": false
+                  }
+                }
+              ],
+              "style": {
+                "vertical-align": "text-top",
+                "border-bottom": "1pt solid #EAEAEA"
+              },
+              "properties": {
+                "visible": true
+              }
+            },
+            "properties": {
+              "visible": true,
+              "selected": false
+            }
+          }
+        ],
+        "style": {
+          "width": "100%"
+        },
+        "type": "cell",
+        "properties": {
+          "visible": true
+        }
+      }
+    ],
+    "style": {},
+    "type": "row",
+    "properties": {
+      "visible": true
+    }
+  }
+}

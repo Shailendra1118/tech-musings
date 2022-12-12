@@ -1,12 +1,16 @@
 package com.sports.rafael;
 
 import org.junit.jupiter.api.Test;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Stack;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class BasicOne {
 
@@ -125,12 +129,62 @@ public class BasicOne {
 
     }
 
-    public class ListNode
-    {
-      int val;
-      ListNode next;
-      public ListNode() {}
-      public ListNode(int val) { this.val = val; }
-      public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-  }
+    public class ListNode {
+          int val;
+          ListNode next;
+          public ListNode() {}
+          public ListNode(int val) { this.val = val; }
+          public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+
+    @Test
+    public void testCharArray() {
+          Stack<Character> stack = new Stack<>();
+          stack.push('c');
+          char c = 'c';
+          System.out.println(stack.peek() == c);
+          Deque<Character> deq = new LinkedList<>();
+          deq.push('c');
+          deq.push('d');
+          deq.push('e');
+          System.out.println(deq.getFirst());
+    }
+
+    @Test
+    public void recurseNestedList() {
+        String temp = "This is Sparta!";
+        String arr[]  = temp.split(" ");
+        for(String s : arr){
+            System.out.println(s);
+        }
+        System.out.println(Arrays.toString(arr));
+        Map<Integer,Integer> map = new TreeMap<>();
+        map.getOrDefault(100,0);
+    }
+
+
+    @Test
+    public void testPalindromicString() {
+        String input = "madam";
+        System.out.println(isPalindrome(input, 0));
+    }
+
+    private boolean isPalindrome(String input, int start) {
+        if(start >=input.length()/2)
+            return true; //if it reaches till here that means all is good
+        if(input.charAt(start) != input.charAt(input.length()-start-1))
+            return false;
+        return isPalindrome(input, start+1); //NOT start++ ie. start = start+1
+    }
+
+    @Test
+    public void testCollectionSwap() {
+        int[] nums = {1,2,3,4,5};
+        List<Integer> list =
+                Arrays.stream(nums).mapToObj(i->i).collect(Collectors.toList());
+        System.out.println(list);
+
+    }
+
 }
