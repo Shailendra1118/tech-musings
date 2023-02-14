@@ -1,0 +1,22 @@
+## Handy commands while working with Kubernetes/ AKS
+
+### Testing ClusterIP type of service -
+- `kubectl port-forward <pod_name> 80 8080`
+
+
+
+### Helm charts
+- `helm install <app-name> <directory_name>/`
+- `helm list`
+- `helm uninstall <name>`
+- `helm upgrad -i <app_name> <directory_name>/`
+
+### Working with AKS
+- Install kubectl and azure-cli
+- Install kubelogin and add it in PATH (e.g. in Windows, PATH=C:\Program~1\kubelogin\bin\windows_amd64 etc)
+- Run `az login`
+- Run `az account set --subscription <subscriptionID>`
+- Run `az aks get-credentials --resource-group <resource_group_name> --name <k8_service_cluster>` (--file .kubeconfig, this could be automatically generated)
+- Set KUBECONFIG in env variable
+- Run `kubectl config set-context <context_name_in_kubeconfig_file>`
+- May be also `kubectl config use-context <context_name>`
