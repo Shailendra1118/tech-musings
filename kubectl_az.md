@@ -1,7 +1,8 @@
 ## Handy commands while working with Kubernetes/ AKS
 
 ### Testing ClusterIP type of service -
-- `kubectl port-forward <pod_name> 80 8080`
+- `kubectl port-forward <pod_name> <your_local_port>:<container_por>`
+- You can access your app by hitting http://localhost:<local_port>/api_end_point
 
 
 
