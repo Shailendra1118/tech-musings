@@ -33,6 +33,18 @@ public class BasicJava {
 
     }
 
+    @Test
+    public void testCharToInt() {
+        char ch = (char)(9 + '0');
+        System.out.println(ch);
+
+        int count = 12;
+        while(count > 0) {
+            int rem = count%10;
+            System.out.println(rem);
+            count = count/10;
+        }
+    }
 
     @Test
     public void findComplement() {
@@ -62,9 +74,19 @@ public class BasicJava {
         int res = Integer.parseInt(comp, 2);
         System.out.println(res);
 
+    }
 
-
-
+    @Test
+    public void testSet() {
+        Set<Integer> set = new HashSet<>();
+        set.add(200);
+        set.add(100);
+        set.add(200);
+        List<Integer> list = set.stream().collect(Collectors.toList());
+        System.out.println(list);
+        int a = -2;
+        int b = -1;
+        System.out.println(a*b);
     }
 
     public class OuterClass {

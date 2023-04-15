@@ -10,7 +10,6 @@ public class GenericsTest {
 
     @Test
     public void testConstructor() {
-
         List<Number> list = new ArrayList<>();
         //list.add(new Integer(10));
         //list.add(new Double(10d)); deprecated

@@ -2,11 +2,8 @@ package com.sports.rafael.basics.java;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.Map.entry;
 
@@ -174,5 +171,111 @@ public class Core {
     public void testArrayInit() {
         //System.out.println(new[] String{"1","2"});
         System.out.println(new String[]{"1","2"}); //bracket should come just before {} braces
+    }
+
+    @Test
+    public void testSplit() {
+        String input = "string";
+        List<String> list = Arrays.stream(input.split("")).collect(Collectors.toList());
+        //System.out.println(Arrays.toString(arr));
+        System.out.println(list);
+    }
+
+
+    @Test
+    public void testPhoneNumberCombo() {
+        String digits = "";
+        Map<String, List<String>> map = new HashMap<>();
+        map.put("1", List.of(""));
+        map.put("2", List.of("a","b","c"));
+        map.put("3", List.of("d","e","f"));
+        map.put("4", List.of("g","h","i"));
+        map.put("5", List.of("j","k","l"));
+        map.put("6", List.of("m","n","o"));
+        map.put("7", List.of("p","q","r","s"));
+        map.put("8", List.of("t","u","v"));
+        map.put("9", List.of("w","x","y","z"));
+
+        String[] input = digits.split("");
+        if(input.length == 0)
+            System.out.println(new ArrayList<>());
+
+        System.out.println(Arrays.toString(input));
+        List<List<String>> list = new ArrayList<>();
+        for(int i=0; i<input.length; i++) {
+            list.add(map.get(input[i]));
+        }
+
+        List<String> temp = new ArrayList<>();
+        temp = list.get(0);
+        int idx = 1;
+        while(idx < input.length) {
+
+            List<String> list1 = temp;
+            List<String> list2 = list.get(idx);
+
+            //create collection
+            List<String> mergedList = new ArrayList<>();
+            for(int i=0; i<list1.size(); i++) {
+                for(int j=0; j<list2.size(); j++) {
+                    mergedList.add(list1.get(i)+list2.get(j));
+                }
+            }
+            temp = mergedList;
+            idx++;
+        }
+        System.out.println(temp);
+    }
+
+    @Test
+    public void testRandom() {
+        System.out.println("Hello Random");
+        int min = 50; // Minimum value of range
+        int max = 100; // Maximum value of range
+        int random_int = (int)(Math.random() * (max - min + 1) + min);
+        // Printing the generated random numbers
+        System.out.println(random_int);
+
+
+
+        Set<Integer> set = new HashSet<>();
+        set.add(100);
+        set.add(240);
+        set.add(9);
+        System.out.println(set.toString());
+
+        Random random = new Random();
+        int val = random.nextInt(set.size());
+        System.out.println("Random Nxt Ind: "+val);
+
+        int count = 0;
+        Iterator<Integer> iter = set.iterator();
+        while(iter.hasNext()) {
+            int setVal = iter.next();
+            if(count == val) {
+                System.out.println("Found:" +setVal);
+                break;
+            }
+            count++;
+        }
+    }
+
+    @Test
+    public void testArray() {
+        int[][] arr = new int[2][2];
+        arr[1][0] = 500;
+        arr[1][1] = 5;
+
+        arr[0][0] = 800;
+        arr[0][1] = 8;
+        //Arrays.sort(arr, (a,b) -> Integer.valueOf(a[0]).compareTo(b[0]));
+        Arrays.sort(arr, (a,b) -> Integer.compare(b[0], a[0]));
+        //Comparator.compareInt(a -> a[0]) works for ascending order only
+        System.out.println(Arrays.deepToString(arr));
+
+        int[][] sorted =
+                Arrays.stream(arr).sorted((a,b) -> Integer.valueOf(a[0]).compareTo(b[0]))
+                        .toArray(int[][] :: new);
+        //System.out.println(Arrays.deepToString(sorted));
     }
 }

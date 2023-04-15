@@ -1,5 +1,6 @@
 package com.sports.rafael.intervals;
 
+import java.net.Inet4Address;
 import java.util.*;
 
 public class CarPool {
@@ -17,34 +18,25 @@ public class CarPool {
         if(trips.length == 1) {
             return trips[0][0] > capacity ? false : true;
         }
-        //Set<Trip> sortedTrips = new TreeSet<>();
-        List<Trip> listOfTrips = new ArrayList<>();
+        Map<Integer, Integer> passengersAtStop = new TreeMap<>(); //map of stop and passengers on board / off board
         for(int i=0; i<trips.length; i++) {
             int passengers = trips[i][0];
             int from = trips[i][1];
             int to = trips[i][2];
-            Trip trip = new Trip(from, to, passengers);
-            listOfTrips.add(trip);
+            passengersAtStop.put(from, passengersAtStop.getOrDefault(from, 0)+passengers);
+            passengersAtStop.put(to, passengersAtStop.getOrDefault(to, 0)-passengers);
         }
 
-        Collections.sort(listOfTrips);
-        Trip prevTrip = listOfTrips.get(0);
-        int totalPassengers = prevTrip.passengers;
-        for(int i=1; i<listOfTrips.size(); i++) {
-            Trip currTrip = listOfTrips.get(i);
-            if(prevTrip.to > currTrip.from) {
-                //means overlapping trip
-                totalPassengers += currTrip.passengers;
-            }else {
-                //not overlapping
-                totalPassengers = currTrip.passengers;
-            }
-            if(totalPassengers > capacity)
-                return false;
+        int totalPassengers = 0;
+        for(Map.Entry<Integer, Integer> entry : passengersAtStop.entrySet()) {
+           totalPassengers += entry.getValue();
+           if(totalPassengers > capacity)
+               return false;
         }
         return true;
     }
 
+    /*
     class Trip implements Comparable<Trip>{
         int from;
         int to;
@@ -59,4 +51,5 @@ public class CarPool {
             return Integer.compare(this.from, o.from);
         }
     }
+     */
 }

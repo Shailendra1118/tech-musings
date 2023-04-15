@@ -15,6 +15,21 @@ import java.util.stream.Collectors;
 public class BasicOne {
 
     @Test
+    public void sbTester() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Hello World!");
+        sb.append("<br/>");
+        System.out.println(sb);
+
+        int a = 10;
+        int b = 20;
+        char ch = '*';
+        System.out.println(a);
+        LinkedList<Integer> list = new LinkedList<>();
+
+
+    }
+    @Test
     public void arrayIt() {
         char arr[] = {'a', 'b'};
         System.out.println(arr.length);

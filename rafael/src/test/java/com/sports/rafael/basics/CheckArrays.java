@@ -9,6 +9,11 @@ import java.util.Queue;
 public class CheckArrays {
 
     @Test
+    public void testFormat() {
+        String msg = "";
+    }
+
+    @Test
     public void test2DArrays() {
         int[][] arr = {{1,3}, {-2,2}};
 
