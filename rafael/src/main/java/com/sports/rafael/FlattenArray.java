@@ -73,7 +73,6 @@ public class FlattenArray {
             }else
                 list.add((Integer)o);
         }
-
     }
 
     public static void parse(List<Object> objList, List<Integer> output) {
