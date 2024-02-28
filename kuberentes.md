@@ -43,6 +43,8 @@ kubectl describe deployment mysql
 
 kubectl logs nginx
 
+kubectl logs -f command-pod command-service -n mynamespace
+
 kubectl logs -p -c ruby web-1 | return snapshot of previously terminated ruby container logs from pod web-1, -p=previous
 
 kubectl logs -f -c ruby web-2 | streaming of logs, -f=follow
@@ -52,6 +54,18 @@ kubectl logs --tail=20 nginx | last 20 lines from pod nginx
 kubectl logs --since=1h nginx
 
 kubectl rollout SUBCOMMAND | manages a deployment using subcommand e.g. kubectl rollout undo deployment/abc
+```
+
+## AKS specific
+```
+Installed Azure CLI
+az login
+az account set --subscription <subscription_name>
+az aks get-credentials --resource-group <group_name> --name <aks_cluster_name>
+
+kubectl config get-contexts (see all contexts available)
+kubectl config current-context (see currently used context)
+kubectl config use-context <context_name> (switch to given context)
 ```
 
 ## Resource Units in K8
