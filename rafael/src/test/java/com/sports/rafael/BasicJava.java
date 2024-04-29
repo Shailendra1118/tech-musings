@@ -105,6 +105,12 @@ public class BasicJava {
         // OuterClass outerClassObj1 = new OuterClass(); Error
     }
 
+    @Test
+    void testSortArray() {
+        int[] nums = {2, 34, 2, 51, 35};
+        Arrays.sort(nums, 2, nums.length);
+        System.out.println(Arrays.toString(nums));
+    }
 
     @Test
     public void testOptional() {

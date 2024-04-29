@@ -15,6 +15,8 @@ public class ClosedIslands {
 
         int res = findClosedIslands(grid);
         System.out.println("Number of Closed Islands: "+res);
+
+
     }
 
     private static int findClosedIslands(int[][] grid) {
