@@ -28,5 +28,12 @@ public class MapUtils {
         //map.entrySet().stream().
         System.out.println(sortedMap);
 
+        sortedMap = map.entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByKey().reversed())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap:: new));
+        System.out.println("default: "+sortedMap);
+
     }
 }
