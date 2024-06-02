@@ -56,4 +56,18 @@ public class BasicsJava {
         String str = "/a/b/c";
         System.out.println(Arrays.toString(str.split("/")));
     }
+
+    @Test
+    void testLists() {
+        Integer[] arr = {1,2,3,4,5};
+        List<Integer> list = Arrays.asList(arr);
+        System.out.println(list);
+
+        int[] arrPrim = {1,2,3,4,5};
+        //List<Integer> listPrim = Arrays.asList(arr);
+        System.out.println(list);
+
+        Integer[] objArr = Arrays.stream(arrPrim).boxed().toArray(Integer[]:: new);
+
+    }
 }
