@@ -2,8 +2,8 @@ package com.sports.rafael.basics;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Dell {
 
@@ -21,5 +21,12 @@ public class Dell {
         }
         System.out.println(res);
 
+    }
+
+    @Test
+    void testArray() {
+        int num[] = {1,5,32,6};
+        Arrays.sort(num);
+        System.out.println(Arrays.toString(num));
     }
 }
