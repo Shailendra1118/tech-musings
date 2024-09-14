@@ -278,4 +278,225 @@ public class Core {
                         .toArray(int[][] :: new);
         //System.out.println(Arrays.deepToString(sorted));
     }
+
+    @Test
+    void testHashSet() {
+        List<List<Integer>> list = new ArrayList<>();
+        list.add(Arrays.asList(1,2,3));
+        list.add(Arrays.asList(5,6,7));
+        Set<List<Integer>> set = new HashSet<>(list);
+        System.out.println(set);
+    }
+
+    @Test
+    void testSort2DArray() {
+        int[][] intervals = {{1,3}, {2,10}, {4,8}, {15,17}, {9,10}};
+        intervals = new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+
+        List<List<Integer>> list = new ArrayList<>();
+        Arrays.stream(intervals).forEach(arr -> {
+            list.add(Arrays.asList(arr[0],arr[1]));
+        });
+        //System.out.println(list);
+        list.sort(Comparator.comparing(l -> l.get(0)));
+        System.out.println("Sorted: "+list);
+
+        List<Integer> resultInterval;
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> interval = list.get(0);
+        int start = interval.get(0);
+        int end = interval.get(1);
+        for(int i=1; i<list.size(); i++) {
+            interval = list.get(i);
+            if (end >= interval.get(0)) {
+                end = Math.max(end,  interval.get(1));
+            } else {
+                //new interval to add
+                resultInterval = new ArrayList<>();
+                resultInterval.add(start);
+                resultInterval.add(end);
+                res.add(resultInterval);
+                start = interval.get(0);
+                end = interval.get(1);
+            }
+        }
+        resultInterval = new ArrayList<>();
+        resultInterval.add(start);
+        resultInterval.add(end);
+        res.add(resultInterval);
+        System.out.println(res);
+
+        int[][] resArray = new int[res.size()][];
+        for (int i=0; i<res.size(); i++) {
+            List<Integer> internalList = res.get(i);
+            resArray[i] = new int[]{internalList.get(0), internalList.get(1)};
+        }
+        Arrays.stream(resArray).forEach(arr -> System.out.println(Arrays.toString(arr)));
+        //System.out.println(resArray);
+    }
+
+    @Test
+    void testArraySort() {
+        int[][] intervals = {{2,10}, {4,8}, {1,3}, {15,17}, {9,10}};
+        //Arrays.sort(intervals, Comparator.comparingInt(i -> i[0]).reversed());
+        //Arrays.sort(intervals, Comparator.comparingInt((int[] i) -> i[0]).reversed());
+        Arrays.sort(intervals, (i1, i2) -> Integer.valueOf(i2[0]).compareTo(i1[0]));
+        Arrays.stream(intervals).forEach(arr -> System.out.println(Arrays.toString(arr)));
+        //System.out.println();
+    }
+
+    @Test
+    void testSortMapDescending() {
+        Map<Integer, Integer> map = new HashMap<>();//Map.of(1, 100, 2, 200, 3, 300);
+        map.put(1, 400);
+        map.put(2, 2200);
+        map.put(3, 1600);
+        List<Map.Entry<Integer,Integer>> entries = map.entrySet().stream().sorted((e1,e2) -> e2.getValue().compareTo(e1.getValue())).collect(Collectors.toList());
+        LinkedHashMap<Integer, Integer> sorted = new LinkedHashMap<>();
+        entries.stream().forEach(entry -> sorted.put(entry.getKey(), entry.getValue()));
+        System.out.println(sorted);
+    }
+
+    @Test
+    void testCharArray() {
+        //Map<Character,Integer>
+        int [] map = new int[26];
+        String s = "ababcbacadefegdehijhklij";
+        for(int i=0; i<s.length(); i++) {
+            map[s.charAt(i)-'a'] = i;
+        }
+        System.out.println(Arrays.toString(map));
+        List<Integer> res = new ArrayList<>();
+        int last = 0; //end index of current substring
+        int start = 0; //for length calculation
+        for(int i=0; i<s.length(); i++) {
+            int curLast = map[s.charAt(i)-'a'];
+            last = Math.max(last, curLast);
+            if (i == last) {
+                //last is passed by i that is current index
+                res.add(last-start+1);
+                start = last+1;
+            }
+        }
+        System.out.println(res);
+    }
+
+    @Test
+    void testDivision() {
+        double res = (double)3/2;
+        System.out.println(Math.ceil(res));
+    }
+
+    @Test
+    void findMissingNumber() {
+        int [] nums = {3,0,1};
+        int res = nums.length;
+        for(int i=0; i<nums.length; i++){
+            res ^= i;
+            System.out.println("After index: "+res);
+            res ^= nums[i];
+            System.out.println("After nums[i]: "+res);
+        }
+        System.out.println("Res: "+res);
+    }
+
+    @Test
+    void testLinkedHM() {
+        Set<String> orderedSet = new LinkedHashSet<>();
+        orderedSet.add("Yadav");
+        orderedSet.add("Vinayaka");
+        System.out.println(orderedSet.contains("Yadav"));
+        orderedSet.add("Aman");
+
+        orderedSet.forEach(s -> System.out.println(s));
+
+
+    }
+
+    @Test
+    void testLinkedHashMap() {
+        int MaxCapacity = 5;
+        Map<Integer, String> map = new LinkedHashMap<>(3, .75f, true) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry<Integer, String> eldest) {
+                //condition
+                if (this.size() > MaxCapacity) {
+                    System.out.println("removing eldest::"+ eldest.getValue());
+                    return true;
+                }
+                return false;
+                //return super.removeEldestEntry(eldest);
+            }
+        };
+        map.put(1, "Shailendra");
+        map.put(5, "Aman");
+        System.out.println(map.get(1));
+        map.put(3, "Vinayak");
+        System.out.println(map);
+
+        map.put(6, "Prashant");
+        map.put(2, "Bhaskar");
+        map.put(4, "Pankaj");
+
+        map.get(3);
+        System.out.println(map);
+    }
+    
+    @Test
+    void testSetAdd() {
+        int[] nums = {1,3,4,5,6,6,6};
+        Set<Integer> set = new HashSet<>();
+        Arrays.stream(nums).forEach(n -> set.add(n));
+        System.out.println(set);
+        set.clear();
+
+    }
+
+    @Test
+    void testLongestSubStringNonRepeating() {
+        String input = "adbcedbpqes";
+        int res = lengthOfLongestSubstring(input);
+        System.out.println("Res: "+res);
+    }
+
+    public int lengthOfLongestSubstringOne(String str) {
+        int s=0, e=0, max=-1;
+        Set<Character> set = new HashSet<>();
+        for (; e<str.length(); e++) {
+            char curr = str.charAt(e);
+            if (!set.contains(curr)) {
+                set.add(curr);
+                max = Math.max(max, set.size());
+            } else {
+                //shrinking
+                set.remove(str.charAt(s));
+                s++;
+            }
+        }
+
+        return max;
+    }
+
+    public int lengthOfLongestSubstring(String str) {
+        int s=0, e=0, max=-1;
+        Set<Character> set = new HashSet<>();
+        for (; e<str.length(); e++) {
+            char curr = str.charAt(e);
+            if (set.contains(curr)) {
+                max = Math.max(max, set.size());
+                while (str.charAt(s) != curr) {
+                    set.remove(str.charAt(s));
+                    s++;
+                }
+                //set.remove(str.charAt(s));
+                s++;
+                //break;
+            } else {
+                set.add(curr);
+            }
+        }
+
+        return Math.max(max, set.size());
+    }
+
 }

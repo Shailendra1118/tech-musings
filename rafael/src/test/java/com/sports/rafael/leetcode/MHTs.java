@@ -21,6 +21,7 @@ public class MHTs {
 
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         Map<Integer,List<Integer>> graph = new HashMap<>();
+        //graph.putAll();
         for (int i=0; i<n; i++) {
             graph.put(i, new ArrayList<>());
         }
