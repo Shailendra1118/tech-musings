@@ -80,4 +80,14 @@ public class BasicCollection {
         method.invoke(main);
         // it works with marking property accessing = true unlike java 8
     }
+
+    @Test
+    void sortList() {
+        List<List<Integer>> list = new ArrayList<>();
+        list.add(List.of(1,5));
+        list.add(List.of(5,1));
+        list.add(List.of(2,6));
+        list.sort(Comparator.comparing(l -> l.get(0)));
+        list.forEach(l -> System.out.println(l));
+    }
 }

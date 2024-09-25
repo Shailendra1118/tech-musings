@@ -1,16 +1,26 @@
 package com.sports.rafael.basics;
 
 import org.junit.jupiter.api.Test;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Queue;
+
+import java.util.*;
 
 public class CheckArrays {
 
     @Test
     public void testFormat() {
-        String msg = "";
+        List<Integer> list = new ArrayList<>(26);
+        //list.forEach(i -> list.set(i, 0));
+        //Collections.fill(list, 0);
+        for (int i=0; i<25; i++) {
+            list.add(0);
+        }
+        String msg = "123(3)";
+        char[] arr = msg.toCharArray();
+        char ch = arr[1];
+        System.out.println(ch);
+        char times = arr[4];
+        list.set((ch-48), times-'0');
+        System.out.println(list);
     }
 
     @Test
