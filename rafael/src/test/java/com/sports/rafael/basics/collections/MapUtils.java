@@ -2,9 +2,9 @@ package com.sports.rafael.basics.collections;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class MapUtils {
     @Test
@@ -35,5 +35,24 @@ public class MapUtils {
                         LinkedHashMap:: new));
         System.out.println("default: "+sortedMap);
 
+    }
+
+    @Test
+    void testReverse() {
+        int[] arr = {1,2,3,4,5};
+        //Collections.reverse(Arrays.asList(arr));
+        List<Integer> list = Arrays.stream(arr).boxed().collect(Collectors.toList());
+        Collections.reverse(list);
+        System.out.println("List: "+list);
+
+        //Arrays.stream(arr).map()
+
+
+        Integer[] intArray = {1,2,4,45,5};
+        Collections.reverse(Arrays.asList(intArray));
+
+        System.out.println(Arrays.toString(arr));
+        int[] reversed = IntStream.range(0, arr.length).map(i -> arr[arr.length-i-1]).toArray();
+        System.out.println(Arrays.toString(reversed));
     }
 }

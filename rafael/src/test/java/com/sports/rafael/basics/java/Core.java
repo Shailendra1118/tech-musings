@@ -499,4 +499,58 @@ public class Core {
         return Math.max(max, set.size());
     }
 
+    @Test
+    void testCharInts() {
+        char num = '6';
+        int n1 = num - '0';
+        //char ch = num -'0';
+        System.out.println(n1);
+
+        int n2 = 5;
+        //char ch = n2 + '0'; //compilation though 5 + '0' will work
+        char ch = Character.forDigit(n2, 10);
+        System.out.println(ch);
+    }
+
+    @Test
+    void testConversion() {
+        char ch = '0';
+        System.out.println(Character.getNumericValue(ch));
+
+        int numValue = ch -'0';
+        System.out.println(numValue);
+        //char val1 = String.valueOf(numValue);
+
+        // int to char (given ascii value -> covert to corresponding char)
+        int val = 97;
+        char chVal = (char) val;
+        System.out.println(chVal);
+
+        val = 8;
+        char cVal = (char)(val + '0');
+        System.out.println(cVal);
+        System.out.println(Character.forDigit(val, 10));
+    }
+
+    @Test
+    void testStream() {
+        int[] arr = {1,2,30,4,5,60};
+        double[] doublArray = Arrays.stream(arr).mapToDouble(i -> i).filter(i -> i%10 == 0).toArray();
+        System.out.println(Arrays.toString(doublArray));
+
+
+        List<Integer> list = List.of(1,2,3,4,540,5);
+        List<Double> dList = list.stream().mapToDouble(i->i)
+                .filter(i -> i%10==0)
+                .boxed()
+                .collect(Collectors.toList());
+        System.out.println(dList);
+
+        double d1 = 19;
+        double d2 = 0;
+        System.out.println(d2/0);
+
+        //double do not throw divideByZero arithmetic exception like Integers
+    }
+
 }
