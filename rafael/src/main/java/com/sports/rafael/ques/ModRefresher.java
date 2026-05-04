@@ -11,6 +11,13 @@ public class ModRefresher {
         System.out.println(b%a); // 1%2 == 1 not divided, remainder still 1
         System.out.println(b/a); // 1/2 == 0 not divided
 
+        System.out.println("0%3 :: "+0%3);
+        System.out.println("1%3 :: "+1%3);
+        System.out.println("2%3 :: "+2%3);
+        System.out.println("3%3 :: "+3%3);
+        System.out.println("4%3 :: "+4%3);
+        System.out.println("5%3 :: "+5%3);
+
 
         boolean res = Character.isLetterOrDigit('!');
         System.out.println(res);

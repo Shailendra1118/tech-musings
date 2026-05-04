@@ -1,6 +1,8 @@
 package com.sports.rafael.basics.collections;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.security.core.parameters.P;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -54,5 +56,50 @@ public class MapUtils {
         System.out.println(Arrays.toString(arr));
         int[] reversed = IntStream.range(0, arr.length).map(i -> arr[arr.length-i-1]).toArray();
         System.out.println(Arrays.toString(reversed));
+    }
+
+    @Test
+    void testMapKeys() {
+        Map<String,Integer> map = new HashMap<>();
+        map.put("Soham", 100);
+        map.put("Soorya", 200);
+        Set<String> oldKeys = map.keySet();
+        System.out.println("Old keys: "+oldKeys);
+
+        map.put("Aman", 300);
+        System.out.println("After adding new: "+oldKeys);
+
+    }
+
+    @Test
+    void testReverseNumber() {
+        int input = 1009;
+        int rev = getReverse(input);
+        System.out.println("Output: "+ rev);
+        Assertions.assertTrue(rev == 9001);
+    }
+
+    private int getReverse(int input) {
+        int rev = 0, rem = 0;
+        while (input > 0) {
+            rem = input % 10;
+            rev = (rev * 10) + rem;
+            input = input/10;
+        }
+        return rev;
+    }
+
+    private void method1(List<Integer> list) {
+        //list = new ArrayList<>();
+        list.add(500);
+    }
+    @Test
+    void testListReference() {
+        List<Integer> list = new ArrayList<>();
+        list.add(10);
+        list.add(20);
+
+        method1(list);
+        System.out.println(list);
     }
 }

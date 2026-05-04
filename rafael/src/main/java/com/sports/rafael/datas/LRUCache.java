@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 
+
+// not optimized, not recommended
 public class LRUCache implements Cache {
 
     private LinkedList<Integer> queue;
